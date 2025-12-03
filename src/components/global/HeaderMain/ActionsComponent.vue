@@ -49,6 +49,11 @@
               <span>Favoritos</span>
             </button>
 
+            <button class="menu-item" @click="goTo('/blank/wishlist')">
+              <v-icon size="18">mdi-face-agent</v-icon>
+              <span>Suporte & Ajuda</span>
+            </button>
+
             <div class="divider"></div>
 
             <button class="menu-item logout" @click="handleLogout">
