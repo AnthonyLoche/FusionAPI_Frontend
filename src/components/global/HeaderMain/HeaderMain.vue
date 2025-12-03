@@ -32,8 +32,7 @@ header {
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
+    width: 80%;
     margin: 0 auto;
     display: flex;
     align-items: center;
