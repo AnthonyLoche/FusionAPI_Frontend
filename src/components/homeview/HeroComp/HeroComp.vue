@@ -224,15 +224,14 @@ const navigateTo = (link) => {
 }
 
 .slide-content {
-  max-width: 1200px;
-  width: 100%;
+  width: 83%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
 .content-wrapper {
-  max-width: 650px;
+  width: 70%;
   animation: slideIn 0.8s ease-out;
 }
 
