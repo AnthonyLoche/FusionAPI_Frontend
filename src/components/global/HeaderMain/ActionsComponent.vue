@@ -28,26 +28,25 @@
             </div>
           </div>
 
-
           <div class="user-menu-items">
-            <button class="menu-item" @click="goToProfile">
+            <button class="menu-item" @click="goTo('/blank/profile')">
               <v-icon size="18">mdi-account-outline</v-icon>
               <span>Meu Perfil</span>
             </button>
 
-            <button class="menu-item" @click="goToOrders">
+            <button class="menu-item" @click="goTo('/admin/dashboard')">
+              <v-icon size="18">mdi-cog-outline</v-icon>
+              <span>Administração</span>
+            </button>
+
+            <button class="menu-item" @click="goTo('/blank/orders')">
               <v-icon size="18">mdi-clipboard-list-outline</v-icon>
               <span>Meus Pedidos</span>
             </button>
 
-            <button class="menu-item" @click="goToWishlist">
+            <button class="menu-item" @click="goTo('/blank/wishlist')">
               <v-icon size="18">mdi-heart-outline</v-icon>
               <span>Favoritos</span>
-            </button>
-
-            <button v-if="currentUser?.isAdmin" class="menu-item" @click="goToAdmin">
-              <v-icon size="18">mdi-cog-outline</v-icon>
-              <span>Administração</span>
             </button>
 
             <div class="divider"></div>
@@ -75,7 +74,9 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const route = useRoute()
 const userMenuOpen = ref(false)
 
@@ -102,6 +103,10 @@ const userName = computed(() => {
 watch(() => route.path, () => {
   userMenuOpen.value = false
 })
+
+const goTo = (route) => {
+  router.push(route)
+}
 
 const toggleUserMenu = () => {
   userMenuOpen.value = !userMenuOpen.value
